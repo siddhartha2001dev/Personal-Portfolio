@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Siddhartha Banerjee — Frontend Developer &amp; UI/UX Designer | Portfolio</title>
+<meta name="description" content="Siddhartha Banerjee is a frontend developer and UI/UX designer from Kolkata, India — crafting responsive web interfaces, digital art, and creative user experiences."/>
+<meta name="keywords" content="Siddhartha Banerjee, frontend developer, UI UX designer, portfolio, Kolkata, web developer, HTML CSS JavaScript, Figma, Procreate"/>
+<meta name="author" content="Siddhartha Banerjee"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://siddhartha2001dev.github.io/index.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Siddhartha Banerjee — Frontend Developer &amp; UI/UX Designer"/>
+<meta property="og:description" content="Portfolio of Siddhartha Banerjee — frontend developer and UI/UX designer from Kolkata, India."/>
+<meta property="og:url" content="https://siddhartha2001dev.github.io/index.html"/>
+<meta property="og:locale" content="en_IN"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Siddhartha Banerjee — Frontend Developer &amp; UI/UX Designer"/>
+<meta name="twitter:description" content="Portfolio of Siddhartha Banerjee — frontend developer and UI/UX designer from Kolkata, India."/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --glass-bg: rgba(255,255,255,0.12);
+  --glass-border: rgba(255,255,255,0.25);
+  --glass-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  --blur: blur(18px);
+  --blur-heavy: blur(40px);
+  --accent: #e87040;
+  --accent2: #f0b070;
+  --text: #f0ece4;
+  --text-muted: rgba(240,236,228,0.6);
+  --bg-1: #0e0c0a;
+  --bg-2: #1a1510;
+  --bg-glow: rgba(232,112,64,0.15);
+  --nav-bg: rgba(14,12,10,0.7);
+  --section-bg: rgba(255,255,255,0.05);
+  --section-border: rgba(255,255,255,0.1);
+  --footer-bg: rgba(14,12,10,0.8);
+  --tag-bg: rgba(232,112,64,0.18);
+  --tag-text: #f0a06a;
+  --btn-bg: rgba(232,112,64,0.15);
+  --btn-hover: rgba(232,112,64,0.3);
+  --card-shadow: 0 4px 30px rgba(0,0,0,0.35);
+}
+[data-theme="light"] {
+  --glass-bg: rgba(255,255,255,0.55);
+  --glass-border: rgba(0,0,0,0.12);
+  --glass-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  --accent: #c95520;
+  --accent2: #e07a3a;
+  --text: #1a1510;
+  --text-muted: rgba(26,21,16,0.55);
+  --bg-1: #f5efe8;
+  --bg-2: #ebe5dc;
+  --bg-glow: rgba(200,85,32,0.08);
+  --nav-bg: rgba(245,239,232,0.75);
+  --section-bg: rgba(255,255,255,0.65);
+  --section-border: rgba(0,0,0,0.1);
+  --footer-bg: rgba(235,229,220,0.9);
+  --tag-bg: rgba(200,85,32,0.1);
+  --tag-text: #c95520;
+  --btn-bg: rgba(200,85,32,0.1);
+  --btn-hover: rgba(200,85,32,0.2);
+  --card-shadow: 0 4px 24px rgba(0,0,0,0.1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  background-color:var(--bg-1);
+  color:var(--text);
+  line-height:1.6;
+  transition:background-color 0.4s, color 0.4s;
+  overflow-x:hidden;
+}
+
+/* BG */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 20%, var(--bg-glow), transparent),
+    radial-gradient(ellipse 50% 60% at 80% 80%, rgba(100,60,20,0.1), transparent);
+  pointer-events:none;z-index:0;
+}
+.bg-layer{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+}
+.bg-layer::after{
+  content:'';position:absolute;inset:-50%;
+  width:200%;height:200%;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:0.35;animation:grainMove 8s steps(10) infinite;
+}
+@keyframes grainMove{0%{transform:translate(0,0)}10%{transform:translate(-2%,-3%)}20%{transform:translate(3%,1%)}30%{transform:translate(-1%,4%)}40%{transform:translate(4%,-2%)}50%{transform:translate(-3%,3%)}60%{transform:translate(2%,-4%)}70%{transform:translate(-4%,2%)}80%{transform:translate(3%,-1%)}90%{transform:translate(-2%,4%)}100%{transform:translate(0,0)}}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:16px;left:50%;transform:translateX(-50%);
+  z-index:200;
+  width:calc(100% - 40px);max-width:1060px;
+  background:var(--glass-bg);
+  backdrop-filter:var(--blur-heavy);-webkit-backdrop-filter:var(--blur-heavy);
+  border:1px solid var(--glass-border);
+  border-radius:20px;
+  padding:0 24px;height:56px;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:var(--card-shadow), inset 0 1px 0 rgba(255,255,255,0.06);
+  transition:background 0.4s,border-color 0.4s;
+  animation:navSlideDown 0.7s cubic-bezier(.25,.46,.45,.94) forwards;
+}
+@keyframes navSlideDown{from{opacity:0;transform:translateX(-50%) translateY(-20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+nav::before{
+  content:'';position:absolute;inset:0;border-radius:20px;
+  background:linear-gradient(135deg,rgba(255,255,255,0.06) 0%,transparent 60%);
+  pointer-events:none;
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem;font-weight:700;
+  color:var(--accent);letter-spacing:0.02em;text-decoration:none;
+  position:relative;z-index:1;
+}
+.nav-links{display:flex;list-style:none;gap:1.8rem;align-items:center;position:relative;z-index:1;}
+.nav-links a{
+  color:var(--text-muted);text-decoration:none;
+  font-size:0.88rem;font-weight:400;letter-spacing:0.05em;transition:color 0.2s;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;
+  background:var(--accent);transform:scaleX(0);transform-origin:center;
+  transition:transform 0.25s cubic-bezier(.25,.46,.45,.94);
+}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+
+.nav-right{display:flex;align-items:center;gap:1rem;position:relative;z-index:1;}
+.theme-toggle{
+  background:rgba(255,255,255,0.08);border:1px solid var(--glass-border);
+  border-radius:50px;cursor:pointer;width:50px;height:26px;
+  position:relative;transition:all 0.3s;flex-shrink:0;
+  box-shadow:inset 0 1px 3px rgba(0,0,0,0.2);
+}
+.theme-toggle-thumb{
+  position:absolute;top:3px;left:3px;
+  width:20px;height:20px;border-radius:50%;background:var(--accent);
+  transition:transform 0.35s cubic-bezier(.68,-.55,.27,1.55);
+  display:flex;align-items:center;justify-content:center;font-size:11px;
+  box-shadow:0 2px 8px rgba(232,112,64,0.4);
+}
+[data-theme="light"] .theme-toggle-thumb{transform:translateX(24px)}
+.hamburger{
+  display:none;cursor:pointer;background:none;border:none;
+  flex-direction:column;gap:5px;padding:4px;
+}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--text);transition:all 0.3s;border-radius:2px;}
+.floating-theme-toggle{display:none}
+
+@media(max-width:768px){
+  nav{top:10px;width:calc(100% - 24px);border-radius:16px;padding:0 16px;}
+  .nav-right{display:none}
+  .hamburger{
+    display:flex;
+    background:var(--glass-bg);border:1px solid var(--glass-border);
+    border-radius:10px;padding:8px 10px;
+    backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+    gap:5px;
+  }
+  .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+  .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  .nav-links{
+    position:fixed;top:72px;left:12px;right:12px;
+    background:rgba(18,14,10,0.92);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);
+    border:1px solid rgba(255,255,255,0.12);border-radius:16px;
+    flex-direction:column;gap:0;padding:0.5rem 0;
+    box-shadow:0 16px 48px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.08);
+    transform:translateY(-20px);opacity:0;visibility:hidden;pointer-events:none;
+    transition:transform 0.35s cubic-bezier(.77,0,.18,1),opacity 0.3s,visibility 0s linear 0.35s;
+    z-index:190;
+  }
+  .nav-links.open{
+    transform:translateY(0);opacity:1;visibility:visible;pointer-events:auto;
+    transition:transform 0.35s cubic-bezier(.77,0,.18,1),opacity 0.3s,visibility 0s linear 0s;
+  }
+  .nav-links li{padding:0.75rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+  .nav-links li:last-child{border-bottom:none}
+  .nav-links a{font-size:1rem}
+}
+[data-theme="light"] .nav-links{
+  background:rgba(240,233,223,0.95) !important;
+  border-color:rgba(0,0,0,0.1) !important;
+}
+[data-theme="light"] .nav-links li{border-bottom-color:rgba(0,0,0,0.06) !important;}
+@media(max-width:768px){
+  .floating-theme-toggle{
+    display:flex;position:fixed;left:50%;bottom:28px;transform:translateX(-50%);
+    z-index:300;align-items:center;gap:10px;
+    background:var(--glass-bg);border:1px solid var(--glass-border);
+    backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+    border-radius:50px;
+    padding:10px 20px;
+    box-shadow:0 8px 32px rgba(0,0,0,0.25);
+  }
+  .floating-theme-label{
+    font-size:0.8rem;
+    color:var(--text-muted);
+    font-weight:400;
+    letter-spacing:0.05em;
+    white-space:nowrap;
+  }
+}
+
+/* HERO */
+#hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:100px 5% 60px;
+  position:relative;z-index:1;
+}
+.hero-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:center;
+  max-width:1100px;
+  margin:0 auto;
+  width:100%;
+}
+.hero-text{opacity:0;animation:fadeUp 0.9s 0.2s forwards}
+.hero-tag{
+  display:inline-block;
+  background:var(--tag-bg);
+  color:var(--tag-text);
+  font-size:0.78rem;
+  font-weight:500;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  padding:5px 14px;
+  border-radius:50px;
+  border:1px solid rgba(232,112,64,0.3);
+  margin-bottom:1.2rem;
+}
+.hero-text h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,5vw,4rem);
+  font-weight:700;
+  line-height:1.1;
+  margin-bottom:0.5rem;
+}
+.hero-text h1 span{color:var(--accent)}
+.hero-text p{
+  color:var(--text-muted);
+  font-size:1rem;
+  margin-top:1rem;
+  max-width:480px;
+  font-weight:300;
+}
+.hero-ctas{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap}
+.btn-primary{
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  padding:11px 26px;
+  border-radius:50px;
+  font-size:0.9rem;
+  font-weight:500;
+  letter-spacing:0.03em;
+  transition:transform 0.2s, box-shadow 0.2s;
+  box-shadow:0 4px 20px rgba(232,112,64,0.35);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(232,112,64,0.45)}
+.btn-ghost{
+  background:var(--btn-bg);
+  color:var(--accent);
+  text-decoration:none;
+  padding:11px 26px;
+  border-radius:50px;
+  font-size:0.9rem;
+  font-weight:500;
+  border:1px solid rgba(232,112,64,0.35);
+  transition:background 0.2s, transform 0.2s;
+}
+.btn-ghost:hover{background:var(--btn-hover);transform:translateY(-2px)}
+.hero-img-wrap{
+  opacity:0;animation:fadeIn 1s 0.5s forwards;
+  display:flex;justify-content:center;
+}
+.hero-img-frame{
+  position:relative;
+  width:min(360px, 100%);
+}
+.hero-img-frame::before{
+  content:'';
+  position:absolute;inset:-12px;
+  border-radius:30px;
+  border:1px solid rgba(232,112,64,0.25);
+  background:linear-gradient(135deg, rgba(232,112,64,0.08), transparent);
+  animation:rotate 8s linear infinite;
+}
+.hero-img-frame::after{
+  content:'';
+  position:absolute;inset:-24px;
+  border-radius:40px;
+  border:1px solid rgba(232,112,64,0.12);
+}
+.hero-img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  border-radius:24px;
+  display:block;
+  position:relative;z-index:1;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+@keyframes rotate{
+  0%{transform:rotate(0deg)}
+  100%{transform:rotate(360deg)}
+}
+
+/* SECTIONS */
+section{
+  padding:80px 5%;
+  position:relative;z-index:1;
+}
+.section-label{
+  font-size:0.75rem;
+  font-weight:500;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:0.5rem;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,3.5vw,2.8rem);
+  font-weight:700;
+  margin-bottom:2.5rem;
+  color:var(--text);
+}
+.section-inner{max-width:1100px;margin:0 auto}
+
+/* GLASS CARD */
+.glass-card{
+  background:var(--section-bg);
+  backdrop-filter:var(--blur);
+  -webkit-backdrop-filter:var(--blur);
+  border:1px solid var(--section-border);
+  border-radius:20px;
+  padding:2.5rem;
+  box-shadow:var(--card-shadow);
+  transition:transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.glass-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 48px rgba(0,0,0,0.35);
+  border-color:rgba(232,112,64,0.3);
+}
+
+/* ABOUT */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+}
+.about-text p{
+  color:var(--text-muted);
+  font-weight:300;
+  font-size:0.97rem;
+  line-height:1.8;
+}
+.skills-grid{
+  display:flex;flex-wrap:wrap;gap:0.6rem;
+  margin-top:1.5rem;
+}
+.skill-tag{
+  background:var(--tag-bg);
+  color:var(--tag-text);
+  border:1px solid rgba(232,112,64,0.2);
+  border-radius:50px;
+  padding:5px 14px;
+  font-size:0.8rem;
+  font-weight:400;
+  transition:transform 0.2s, background 0.2s;
+}
+.skill-tag:hover{transform:scale(1.05);background:rgba(232,112,64,0.25)}
+.stats-col{display:flex;flex-direction:column;gap:1.5rem}
+.stat-item{
+  background:linear-gradient(135deg, rgba(232,112,64,0.12), rgba(232,112,64,0.04));
+  border:1px solid rgba(232,112,64,0.2);
+  border-radius:16px;
+  padding:1.5rem;
+  text-align:center;
+}
+.stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;
+  font-weight:700;
+  color:var(--accent);
+  line-height:1;
+}
+.stat-label{color:var(--text-muted);font-size:0.82rem;margin-top:0.4rem}
+
+/* PROJECTS */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1.5rem;
+}
+.project-card{
+  background:var(--section-bg);
+  border:1px solid var(--section-border);
+  border-radius:20px;
+  padding:2rem;
+  transition:transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+
+
+}
+.project-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(232,112,64,0.4);
+  box-shadow:0 20px 50px rgba(0,0,0,0.3);
+}
+.proj-icon{
+  width:48px;height:48px;
+  background:linear-gradient(135deg,rgba(232,112,64,0.25),rgba(232,112,64,0.08));
+  border:1px solid rgba(232,112,64,0.25);
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;
+  margin-bottom:1.2rem;
+}
+.project-card h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;
+  margin-bottom:0.7rem;
+  color:var(--text);
+}
+.project-card p{
+  color:var(--text-muted);
+  font-size:0.88rem;
+  line-height:1.7;
+  font-weight:300;
+}
+.proj-link{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:1.2rem;
+  color:var(--accent);
+  text-decoration:none;
+  font-size:0.85rem;
+  font-weight:500;
+  border:1px solid rgba(232,112,64,0.3);
+  padding:6px 16px;
+  border-radius:50px;
+  transition:background 0.2s, transform 0.2s;
+}
+.proj-link:hover{background:var(--btn-hover);transform:translateX(3px)}
+
+/* INTERESTS */
+.interests-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:1rem;
+}
+.interest-card{
+  background:var(--section-bg);
+  border:1px solid var(--section-border);
+  border-radius:16px;
+  padding:1.5rem 1rem;
+  text-align:center;
+  backdrop-filter:var(--blur);
+  -webkit-backdrop-filter:var(--blur);
+  transition:transform 0.3s, border-color 0.3s;
+}
+.interest-card:hover{transform:translateY(-4px);border-color:rgba(232,112,64,0.35)}
+.int-icon{font-size:2rem;margin-bottom:0.7rem;display:block}
+.interest-card span:last-child{
+  font-size:0.85rem;color:var(--text-muted);font-weight:300;
+}
+
+/* CONTACT */
+.contact-row{
+  display:flex;flex-wrap:wrap;gap:1.5rem;
+}
+.contact-item{
+  display:flex;align-items:center;gap:1rem;
+  background:var(--section-bg);
+  border:1px solid var(--section-border);
+  border-radius:14px;
+  padding:1.2rem 1.8rem;
+  text-decoration:none;
+  color:var(--text);
+  transition:transform 0.25s, border-color 0.25s;
+  flex:1;min-width:200px;
+  backdrop-filter:var(--blur);
+  -webkit-backdrop-filter:var(--blur);
+}
+.contact-item:hover{transform:translateY(-3px);border-color:rgba(232,112,64,0.4);color:var(--accent)}
+.contact-icon{font-size:1.4rem}
+.contact-label{font-size:0.9rem;font-weight:400}
+
+/* FOOTER */
+footer{
+  background:var(--footer-bg);
+  backdrop-filter:var(--blur);
+  -webkit-backdrop-filter:var(--blur);
+  border-top:1px solid var(--glass-border);
+  text-align:center;
+  padding:2rem 5%;
+  color:var(--text-muted);
+  font-size:0.85rem;
+  position:relative;z-index:1;
+}
+footer .accent{color:var(--accent)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity 0.7s cubic-bezier(.25,.46,.45,.94), transform 0.7s cubic-bezier(.25,.46,.45,.94);
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr}
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-ctas{justify-content:center}
+  .hero-text p{margin:1rem auto 0}
+  .hero-img-wrap{order:-1}
+  .hero-img{height:300px}
+}
+@media(max-width:600px){
+  section{padding:60px 5%}
+  .glass-card{padding:1.5rem}
+  .project-card{padding:1.5rem}
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Siddhartha Banerjee","url":"index.html","jobTitle":"MERN Stack Developer & UI/UX Designer","address":{"@type":"PostalAddress","addressLocality":"Kolkata","addressRegion":"West Bengal","addressCountry":"IN"},"sameAs":["https://github.com/siddhartha2001dev"]}
+</script>
+</head>
+<body>
+
+<div class="bg-layer"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">SB.</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/index.html" class="active" onclick="closeNav()">Home</a></li>
+    <li><a href="/projects.html" onclick="closeNav()">Projects</a></li>
+    <li><a href="/about.html" onclick="closeNav()">About</a></li>
+    <li><a href="/contact.html" onclick="closeNav()">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <div class="theme-toggle-thumb" id="themeThumb">🌙</div>
+    </button>
+  </div>
+</nav>
+
+<!-- Floating theme toggle for mobile -->
+<div class="floating-theme-toggle" id="floatingToggle">
+  <span class="floating-theme-label" id="floatingLabel">Dark Mode</span>
+  <button class="theme-toggle" id="themeToggle2" aria-label="Toggle theme">
+    <div class="theme-toggle-thumb" id="themeThumb2">🌙</div>
+  </button>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">ECE Engineer &amp; Developer</div>
+      <h1>Hi, I'm <span>Siddhartha</span><br/>Banerjee</h1>
+      <p>MERN stack developer, UI/UX enthusiast, and creative technologist crafting responsive, beautiful web experiences.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="hero-img-frame">
+        <img class="hero-img" src="/photos/image.png">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Who I Am</p>
+      <h2 class="section-title">About Me</h2>
+    </div>
+    <div class="about-grid">
+      <div class="glass-card reveal">
+        <div class="about-text">
+          <p>Recent B.Tech graduate in Electronics and Communication Engineering with hands-on experience in full-stack web development and UI/UX design. Skilled in JavaScript, Node.js, Express.js, MongoDB, REST API development, and modern web technologies, with practical experience building responsive applications and backend systems. Passionate about creating user-centric digital products through effective design and development practices. Currently expanding expertise in React.js and TypeScript while strengthening software engineering and problem-solving skills. Eager to contribute to innovative teams and grow as a Full-Stack Developer.</p>
+          <div class="skills-grid">
+            <span class="skill-tag">HTML5 / CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Bootstrap</span>
+            <span class="skill-tag">Tailwind CSS</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">C / C++</span>
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">MERN Stack</span>
+            <span class="skill-tag">Mongo DB</span>
+            <span class="skill-tag"> JAVA</span>
+            <span class="skill-tag"> Python</span>
+
+          </div>
+        </div>
+      </div>
+      <div class="stats-col">
+        <div class="stat-item glass-card reveal">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Years of Creative Coding</div>
+        </div>
+        <div class="stat-item glass-card reveal">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-item glass-card reveal">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Curiosity &amp; Drive</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">What I've Built</p>
+      <h2 class="section-title">Projects</h2>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="proj-icon">🌐</div>
+       
+        
+        <h2>VaultTask (Backend) – Secure Todo REST API ⭐ (Featured)</h2>
+            <br/>
+
+         <h4>Tech Stack: Node.js, Express.js, MongoDB, JWT, Bcrypt, Postman</h4>
+
+        <p>Developed a RESTful Todo Management API with JWT-based authentication and authorization. Implemented secure user registration, login, CRUD operations, password hashing, and protected routes following the MVC architecture.</p>
+        <a href="https://github.com/siddhartha2001dev/todo-user-backend" class="proj-link" target="_blank"> View on GitHub →</a>
+      </div>
+
+
+      <div class="project-card reveal">
+        <div class="proj-icon">🎮</div>
+        <h3>Flap Quest</h3>
+        <p>An interactive 2D browser game inspired by Flappy Bird. Built with HTML, CSS &amp; vanilla JavaScript using DOM manipulation and real-time animation. Custom game assets designed in Procreate.</p>
+        <a href="https://github.com/siddhartha2001dev/Flap-Quest" class="proj-link" target="_blank">View on GitHub →</a>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="proj-icon">🎨</div>
+        <h3>Digital Art &amp; Illustrations</h3>
+        <p>A collection of digital artworks exploring visual storytelling, color theory, and character design using Procreate. From concept illustrations to logo design.</p>
+        <span class="proj-link" style="cursor:default">Procreate Portfolio</span>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="proj-icon">📐</div>
+        <h3>UI/UX Design Projects</h3>
+        <p>Thoughtfully crafted UI/UX designs on Figma — wireframes, high-fidelity prototypes, and usability-tested interfaces balancing user needs and business goals.</p>
+        <a href="https://www.figma.com/files/team/1333434434162545292/project/198846216/Team-project?fuid=1333434429232682015" class="proj-link" target="_blank">View on Figma →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section id="interests">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Beyond The Screen</p>
+      <h2 class="section-title">Interests &amp; Hobbies</h2>
+    </div>
+    <div class="interests-grid">
+      <div class="interest-card reveal"><span class="int-icon">🎵</span><span>Singing</span></div>
+      <div class="interest-card reveal"><span class="int-icon">📷</span><span>Photography</span></div>
+      <div class="interest-card reveal"><span class="int-icon">🎬</span><span>Videography</span></div>
+      <div class="interest-card reveal"><span class="int-icon">🎹</span><span>Sound Design</span></div>
+      <div class="interest-card reveal"><span class="int-icon">🖌️</span><span>Digital Art</span></div>
+      <div class="interest-card reveal"><span class="int-icon">💻</span><span>Web Dev</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Let's Connect</p>
+      <h2 class="section-title">Get In Touch</h2>
+    </div>
+    <div class="contact-row">
+      <a href="https://github.com/siddhartha2001dev" class="contact-item reveal" target="_blank">
+        <span class="contact-icon">🐙</span>
+        <span class="contact-label">GitHub</span>
+      </a>
+      <a href="https://www.behance.net/siddharbanerje10" class="contact-item reveal" target="_blank">
+        <span class="contact-icon">🎨</span>
+        <span class="contact-label">UI/UX designs</span>
+      </a>
+      <a href="mailto:siddhartha@example.com" class="contact-item reveal">
+        <span class="contact-icon">✉️</span>
+        <span class="contact-label">Email Me</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span class="accent">Siddhartha Banerjee</span> — All rights reserved.</p>
+  <p style="margin-top:0.4rem;font-size:0.78rem">Built with ❤️ using HTML · CSS · JavaScript</p>
+</footer>
+
+<script>
+const html = document.documentElement;
+const toggle = document.getElementById('themeToggle');
+const thumb = document.getElementById('themeThumb');
+const toggle2 = document.getElementById('themeToggle2');
+const thumb2 = document.getElementById('themeThumb2');
+const floatingLabel = document.getElementById('floatingLabel');
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+function setTheme(t){
+  html.setAttribute('data-theme',t);
+  const icon = t==='dark'?'🌙':'☀️';
+  const label = t==='dark'?'Dark Mode':'Light Mode';
+  thumb.textContent = icon;
+  thumb2.textContent = icon;
+  if(floatingLabel) floatingLabel.textContent = label;
+  localStorage.setItem('theme',t);
+}
+
+toggle.addEventListener('click',()=>{
+  setTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+});
+toggle2.addEventListener('click',()=>{
+  setTheme(html.getAttribute('data-theme')==='dark'?'light':'dark');
+});
+
+const saved = localStorage.getItem('theme');
+if(saved) setTheme(saved);
+else if(window.matchMedia('(prefers-color-scheme:light)').matches) setTheme('light');
+
+function closeNav(){
+  navLinks.classList.remove('open');
+  hamburger.classList.remove('open');
+}
+hamburger.addEventListener('click',()=>{
+  navLinks.classList.toggle('open');
+  hamburger.classList.toggle('open');
+});
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}});
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{
+  el.style.transitionDelay = (i%3)*80+'ms';
+  observer.observe(el);
+});
+
+/* CURSOR GLOW */
+if(window.innerWidth>768){
+  const glow=document.createElement('div');
+  glow.style.cssText='position:fixed;width:320px;height:320px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(232,112,64,0.06),transparent 70%);transform:translate(-50%,-50%);transition:opacity 0.3s;opacity:0;';
+  document.body.appendChild(glow);
+  document.addEventListener('mousemove',e=>{
+    glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';glow.style.opacity='1';
+  });
+}
+</script>
+</body>
+</html>
