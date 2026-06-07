@@ -341,6 +341,76 @@ section{
 }
 .section-inner{max-width:1100px;margin:0 auto}
 
+/* EXPERIENCE */
+.exp-timeline{display:flex;flex-direction:column;gap:0;position:relative;}
+.exp-timeline::before{
+  content:'';position:absolute;left:22px;top:8px;bottom:8px;width:2px;
+  background:linear-gradient(180deg,var(--accent),rgba(232,112,64,0.1));
+  border-radius:2px;
+}
+.exp-item{
+  display:grid;grid-template-columns:48px 1fr;gap:0 1.5rem;
+  opacity:0;transform:translateX(-30px);
+  transition:opacity 0.6s cubic-bezier(.25,.46,.45,.94),transform 0.6s cubic-bezier(.25,.46,.45,.94);
+  margin-bottom:2.2rem;
+}
+.exp-item.visible{opacity:1;transform:translateX(0)}
+.exp-dot-col{display:flex;flex-direction:column;align-items:center;padding-top:4px;}
+.exp-dot{
+  width:14px;height:14px;border-radius:50%;
+  background:var(--accent);border:3px solid var(--bg-1);
+  box-shadow:0 0 0 3px rgba(232,112,64,0.3);
+  flex-shrink:0;position:relative;z-index:1;
+  transition:box-shadow 0.3s;
+}
+.exp-item:hover .exp-dot{box-shadow:0 0 0 6px rgba(232,112,64,0.2);}
+.exp-card{
+  background:var(--section-bg);
+  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+  border:1px solid var(--section-border);
+  border-radius:16px;padding:1.5rem 1.8rem;
+  box-shadow:var(--card-shadow);
+  transition:transform 0.3s,border-color 0.3s,box-shadow 0.3s;
+  cursor:default;
+}
+.exp-card:hover{transform:translateY(-3px);border-color:rgba(232,112,64,0.35);box-shadow:0 12px 40px rgba(0,0,0,0.3);}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.4rem;}
+.exp-role{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;font-weight:700;color:var(--text);
+}
+.exp-badge{
+  background:var(--tag-bg);color:var(--tag-text);
+  border:1px solid rgba(232,112,64,0.25);
+  border-radius:50px;padding:3px 12px;font-size:0.72rem;
+  font-weight:500;letter-spacing:0.05em;white-space:nowrap;
+  flex-shrink:0;
+}
+.exp-badge.ongoing{
+  background:rgba(80,200,120,0.12);color:#6dca8a;
+  border-color:rgba(80,200,120,0.25);
+  animation:pulse-green 2s ease-in-out infinite;
+}
+@keyframes pulse-green{0%,100%{box-shadow:0 0 0 0 rgba(80,200,120,0.3)}50%{box-shadow:0 0 0 5px rgba(80,200,120,0)}}
+.exp-company{color:var(--accent);font-size:0.9rem;font-weight:500;margin-bottom:0.3rem;}
+.exp-duration{color:var(--text-muted);font-size:0.8rem;margin-bottom:0.8rem;}
+.exp-desc{color:var(--text-muted);font-size:0.88rem;font-weight:300;line-height:1.75;}
+.exp-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.9rem;}
+.exp-tag{
+  background:rgba(255,255,255,0.06);color:var(--text-muted);
+  border:1px solid var(--section-border);
+  border-radius:50px;padding:3px 10px;font-size:0.75rem;
+  transition:color 0.2s,border-color 0.2s;
+}
+.exp-tag:hover{color:var(--accent);border-color:rgba(232,112,64,0.3);}
+@media(max-width:600px){
+  .exp-timeline::before{left:16px;}
+  .exp-item{grid-template-columns:36px 1fr;gap:0 1rem;}
+  .exp-dot{width:12px;height:12px;}
+  .exp-header{flex-direction:column;}
+  .exp-card{padding:1.2rem;}
+}
+
 /* GLASS CARD */
 .glass-card{
   background:var(--section-bg);
@@ -546,7 +616,7 @@ footer .accent{color:var(--accent)}
 }
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Siddhartha Banerjee","url":"index.html","jobTitle":"MERN Stack Developer & UI/UX Designer","address":{"@type":"PostalAddress","addressLocality":"Kolkata","addressRegion":"West Bengal","addressCountry":"IN"},"sameAs":["https://github.com/siddhartha2001dev"]}
+{"@context":"https://schema.org","@type":"Person","name":"Siddhartha Banerjee","url":"index.html","jobTitle":"Frontend Developer & UI/UX Designer","address":{"@type":"PostalAddress","addressLocality":"Kolkata","addressRegion":"West Bengal","addressCountry":"IN"},"sameAs":["https://github.com/siddhartha2001dev"]}
 </script>
 </head>
 <body>
@@ -586,7 +656,7 @@ footer .accent{color:var(--accent)}
     <div class="hero-text">
       <div class="hero-tag">ECE Engineer &amp; Developer</div>
       <h1>Hi, I'm <span>Siddhartha</span><br/>Banerjee</h1>
-      <p>MERN stack developer, UI/UX enthusiast, and creative technologist crafting responsive, beautiful web experiences.</p>
+      <p>Full Stack developer, UI/UX enthusiast, and creative technologist crafting responsive, beautiful web experiences.</p>
       <div class="hero-ctas">
         <a href="#projects" class="btn-primary">View Projects</a>
         <a href="#contact" class="btn-ghost">Get in Touch</a>
@@ -610,7 +680,7 @@ footer .accent{color:var(--accent)}
     <div class="about-grid">
       <div class="glass-card reveal">
         <div class="about-text">
-          <p>Recent B.Tech graduate in Electronics and Communication Engineering with hands-on experience in full-stack web development and UI/UX design. Skilled in JavaScript, Node.js, Express.js, MongoDB, REST API development, and modern web technologies, with practical experience building responsive applications and backend systems. Passionate about creating user-centric digital products through effective design and development practices. Currently expanding expertise in React.js and TypeScript while strengthening software engineering and problem-solving skills. Eager to contribute to innovative teams and grow as a Full-Stack Developer.</p>
+          <p>Recent B.Tech graduate in Electronics and Communication Engineering with hands-on experience in Full-Stack Web Development through academic projects and a 7-month MERN Stack internship and training program. Skilled in JavaScript, TypeScript, Node.js, Express.js, MongoDB, REST API development, and modern web technologies. Experienced in building responsive web applications, backend systems, and user-friendly interfaces. Passionate about creating scalable digital solutions and delivering seamless user experiences through effective development and design practices. Continuously expanding expertise in React.js and modern software engineering principles while strengthening problem-solving skills. Seeking opportunities to contribute to innovative teams and grow as a Full-Stack Developer.</p>
           <div class="skills-grid">
             <span class="skill-tag">HTML5 / CSS3</span>
             <span class="skill-tag">JavaScript</span>
@@ -625,6 +695,7 @@ footer .accent{color:var(--accent)}
             <span class="skill-tag">Mongo DB</span>
             <span class="skill-tag"> JAVA</span>
             <span class="skill-tag"> Python</span>
+            <span class="skill-tag"> Postman</span>
 
           </div>
         </div>
@@ -647,6 +718,67 @@ footer .accent{color:var(--accent)}
   </div>
 </section>
 
+<!-- WORKING EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">My Journey</p>
+      <h2 class="section-title">Working Experience</h2>
+    </div>
+    <div class="exp-timeline">
+
+      <!-- ENTRY 1 — Role, company, duration, description, tags edit karo -->
+      <div class="exp-item">
+        <div class="exp-dot-col"><div class="exp-dot"></div></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role">MERN Stack Developer Trainee Intern</div>
+            <span class="exp-badge">Internship & Training</span>
+          </div>
+          <div class="exp-company">Company Name — Weavers Web Solution, Kolkata, India</div>
+          <div class="exp-duration">&#128197; Mar 2026 — Oct 2026 &middot; 7 months</div>
+          <div class="exp-desc">
+            Completed a 7-month training and internship program focused on MERN Stack Development with TypeScript, gaining practical experience in building full-stack web applications, REST APIs, database management, and responsive user interfaces.
+          </div>
+          <div class="exp-tags">
+            <span class="exp-tag">HTML / CSS</span>
+            <span class="exp-tag">Tailwind</span>
+            <span class="exp-tag">Bootstraps</span>
+            <span class="exp-tag">JavaScript</span>
+            <span class="exp-tag">React</span>
+             <span class="exp-tag">Mongo DB</span>
+              <span class="exp-tag">Express.Js</span>
+               <span class="exp-tag">Node.Js</span>
+                <span class="exp-tag">TypeScript</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- NAYA ENTRY ADD KARNA HO TOH YE BLOCK UNCOMMENT KARO AUR FILL KARO -->
+      <!--
+      <div class="exp-item">
+        <div class="exp-dot-col"><div class="exp-dot"></div></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div class="exp-role">Job Title</div>
+            <span class="exp-badge">Full-time</span>
+          </div>
+          <div class="exp-company">Company Name</div>
+          <div class="exp-duration">&#128197; Month Year &mdash; Month Year</div>
+          <div class="exp-desc">Description yahan likhna.</div>
+          <div class="exp-tags">
+            <span class="exp-tag">Skill 1</span>
+            <span class="exp-tag">Skill 2</span>
+          </div>
+        </div>
+      </div>
+      -->
+
+    </div>
+  </div>
+</section>
+
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
@@ -660,7 +792,7 @@ footer .accent{color:var(--accent)}
         <div class="proj-icon">🌐</div>
        
         
-        <h2>VaultTask (Backend) – Secure Todo REST API ⭐ (Featured)</h2>
+        <h2>VaultTask (Backend) – Secure Todo REST API ⭐ </h2>
             <br/>
 
          <h4>Tech Stack: Node.js, Express.js, MongoDB, JWT, Bcrypt, Postman</h4>
@@ -677,18 +809,13 @@ footer .accent{color:var(--accent)}
         <a href="https://github.com/siddhartha2001dev/Flap-Quest" class="proj-link" target="_blank">View on GitHub →</a>
       </div>
 
-      <div class="project-card reveal">
-        <div class="proj-icon">🎨</div>
-        <h3>Digital Art &amp; Illustrations</h3>
-        <p>A collection of digital artworks exploring visual storytelling, color theory, and character design using Procreate. From concept illustrations to logo design.</p>
-        <span class="proj-link" style="cursor:default">Procreate Portfolio</span>
-      </div>
 
       <div class="project-card reveal">
         <div class="proj-icon">📐</div>
         <h3>UI/UX Design Projects</h3>
         <p>Thoughtfully crafted UI/UX designs on Figma — wireframes, high-fidelity prototypes, and usability-tested interfaces balancing user needs and business goals.</p>
-        <a href="https://www.figma.com/files/team/1333434434162545292/project/198846216/Team-project?fuid=1333434429232682015" class="proj-link" target="_blank">View on Figma →</a>
+
+        <a href="https://www.behance.net/siddharbanerje10" class="proj-link" target="_blank">View on Behance →</a>
       </div>
 
     </div>
@@ -727,7 +854,7 @@ footer .accent{color:var(--accent)}
       </a>
       <a href="https://www.behance.net/siddharbanerje10" class="contact-item reveal" target="_blank">
         <span class="contact-icon">🎨</span>
-        <span class="contact-label">UI/UX designs</span>
+        <span class="contact-label">Behance</span>
       </a>
       <a href="mailto:siddhartha@example.com" class="contact-item reveal">
         <span class="contact-icon">✉️</span>
@@ -789,6 +916,20 @@ const observer = new IntersectionObserver((entries)=>{
 document.querySelectorAll('.reveal').forEach((el,i)=>{
   el.style.transitionDelay = (i%3)*80+'ms';
   observer.observe(el);
+});
+
+
+/* EXPERIENCE TIMELINE ANIMATION */
+const expObserver = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 150);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.exp-item').forEach((el, i) => {
+  el.style.transitionDelay = i * 120 + 'ms';
+  expObserver.observe(el);
 });
 
 /* CURSOR GLOW */
